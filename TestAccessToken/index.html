@@ -34,7 +34,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '2490187638';
+    var serviceWorkerVersion = '708006798';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -80,15 +80,6 @@
 
           alert(context.user.tenant.id)
 
-          const msalInstance = new msal.PublicClientApplication(msalConfig);
-          const scopesArray = scope.split(" ");
-          const scopesRequest = {
-            scopes: scopesArray,
-            redirectUri: window.location.origin + `/auth-end.html?clientId=${clientId}`,
-            loginHint: loginHint
-          };
-          await msalInstance.loginRedirect(scopesRequest);
-
           var authTokenRequest = {
             successCallback: function (result) {
                 //call server side to exchange the  token from teams with access token & used it to call graph
@@ -101,6 +92,7 @@
             },
             failureCallback: function (error) { console.log("Failure: " + error); },
           };
+
           microsoftTeams.authentication.getAuthToken(authTokenRequest)
               .then((response) => {
                 if (!response) {
@@ -115,6 +107,7 @@
               })
               .catch((error) => {
                 console.error('GetToken failed', error);
+                alert(error);
                 reject();
               });
         });
