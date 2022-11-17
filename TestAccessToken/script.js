@@ -16,6 +16,7 @@ function initializeMST(message) {
 
     var authTokenRequest = {
         successCallback: function (result) {
+            console.log(result);
             //call server side to exchange the  token from teams with access token & used it to call graph
             fetch("/token?token=" + result)              
                         .then(json => json.json()).then(result=> {
