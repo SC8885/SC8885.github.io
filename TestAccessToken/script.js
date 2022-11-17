@@ -19,7 +19,7 @@ function initializeMST(message) {
             //call server side to exchange the  token from teams with access token & used it to call graph
             fetch("/token?token=" + result)              
                         .then(json => json.json()).then(result=> {
-                          alert(context.user.tenant.id);
+                          alert(result);
                           console.log(result);
                         }); 
           
