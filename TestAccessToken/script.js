@@ -49,6 +49,7 @@ function initializeMST(message) {
               })
               .catch((error) => {
                 console.error('GetToken failed', error);
+                alert(error);
                 reject();
               });
         });
