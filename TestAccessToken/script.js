@@ -3,7 +3,6 @@ function showAlert(message) {
 }
 
 function initializeMST(message) {
-    alert(message)
     microsoftTeams.app.initialize().then(() => {
         microsoftTeams.app.getContext().then(async (context) => {
           // Generate random state string and store it, so we can verify it in the callback
@@ -25,40 +24,33 @@ function initializeMST(message) {
 
           alert(context.user.tenant.id)
 
-          const msalInstance = new msal.PublicClientApplication(msalConfig);
-          const scopesArray = scope.split(" ");
-          const scopesRequest = {
-            scopes: scopesArray,
-            redirectUri: window.location.origin + `/auth-end.html?clientId=${clientId}`,
-            loginHint: loginHint
-          };
-          await msalInstance.loginRedirect(scopesRequest);
-
           var authTokenRequest = {
-            successCallback: function (result) {
-                //call server side to exchange the  token from teams with access token & used it to call graph
-                fetch("/token?token=" + result)              
-                            .then(json => json.json()).then(result=> {
-                                document.getElementById("jsonData").textContent = JSON.stringify(result, undefined, 2);
-                            });
-                           
-              
-            },
-            failureCallback: function (error) { console.log("Failure: " + error); },
-        };
-        microsoftTeams.authentication.getAuthToken(authTokenRequest)
-            .then((response) => {
-            if (!response) {
-                console.error('GetToken failed');
+              successCallback: function (result) {
+                  //call server side to exchange the  token from teams with access token & used it to call graph
+                  fetch("/token?token=" + result)              
+                              .then(json => json.json()).then(result=> {
+                                  document.getElementById("jsonData").textContent = JSON.stringify(result, undefined, 2);
+                              });
+                            
+                
+              },
+              failureCallback: function (error) { console.log("Failure: " + error); },
+          };
+          microsoftTeams.authentication.getAuthToken(authTokenRequest)
+              .then((response) => {
+                if (!response) {
+                    console.error('GetToken failed');
+                    reject();
+                    return;
+                }
+                console.log('resolve(response)', response);
+                  alert(response)
+                  resolve(response);
+              })
+              .catch((error) => {
+                console.error('GetToken failed', error);
                 reject();
-                return;
-            }
-            resolve(response);
-            })
-            .catch((error) => {
-            console.error('GetToken failed', error);
-            reject();
-            });
+              });
         });
       });
 }
