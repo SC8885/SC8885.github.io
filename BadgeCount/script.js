@@ -6,7 +6,7 @@ async function getTeamsToken() {
   microsoftTeams.authentication.getAuthToken({
       successCallback: (result) => {
           console.log("TeamsToken successCallback");
-          window.rflxMediator('getTeamsToken', result);
+          window.rflxMediator('getTeamsToken', JSON.stringify(result));
       },
       failureCallback: (error) => {
           console.log("TeamsToken failureCallback" + error);
