@@ -22,7 +22,9 @@ async function getTeamsContext() {
   microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
       window.rflxMediator('getTeamsContext', JSON.stringify(context));
-      microsoftTeams.appInitialization.setTabBadge(6);
+      microsoftTeams.applications.setApplicationIconBadgeNumber(6);
+  microsoftTeams.appInitialization.setTabBadge(7);
+  microsoftTeams.settings.setTabBadge("8", "#FF0000");
   });
   
 }
@@ -30,11 +32,10 @@ async function getTeamsContext() {
 // Get Teams context
 async function setTeamsBadgeCount() {
   console.log("Setting teams badge count");
-  microsoftTeams.initialize(() => {
+  await microsoftTeams.initialize(() => {
   microsoftTeams.appInitialization.notifySuccess();
 
   // Set the badge count
-  microsoftTeams.appBadge.setNumber(2);
   microsoftTeams.applications.setApplicationIconBadgeNumber(3);
   microsoftTeams.appInitialization.setTabBadge(4);
   microsoftTeams.settings.setTabBadge("5", "#FF0000");
