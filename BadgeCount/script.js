@@ -24,6 +24,7 @@ async function getTeamsContext() {
       window.rflxMediator('getTeamsContext', JSON.stringify(context));
   });
   microsoftTeams.applications.setApplicationIconBadgeNumber(3);
+  microsoftTeams.appInitialization.setTabBadge(4);
 }
 
 // Get Teams context
