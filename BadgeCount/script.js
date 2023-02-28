@@ -25,7 +25,7 @@ async function getTeamsContext() {
   });
   microsoftTeams.applications.setApplicationIconBadgeNumber(3);
   microsoftTeams.appInitialization.setTabBadge(4);
-  microsoftTeams.appInitialization.setTabBadge(5);
+  microsoftTeams.settings.setTabBadge("New", "#FF0000");
 }
 
 // Get Teams context
