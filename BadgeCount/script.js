@@ -6,7 +6,7 @@ async function getTeamsToken() {
   microsoftTeams.authentication.getAuthToken({
       successCallback: (result) => {
           console.log("TeamsToken successCallback");
-          window.rflxMediator('getTeamsToken', JSON.stringify(result));
+          window.rflxMediator('getTeamsToken', result);
       },
       failureCallback: (error) => {
           console.log("TeamsToken failureCallback" + error);
@@ -23,4 +23,23 @@ async function getTeamsContext() {
       console.log("TeamsContext successCallback");
       window.rflxMediator('getTeamsContext', JSON.stringify(context));
   });
+}
+
+// Get Teams context
+async function setTeamsBadgeCount() {
+  console.log("Setting teams badge count");
+  await microsoftTeams.initialize();
+  microsoftTeams.tasks.submitTask(function (err, result) {
+    if (err) {
+        // Handle error
+    } else {
+        microsoftTeams.appInitialization.notifySuccess();
+        // Set the badge count
+        microsoftTeams.applications.setApplicationIconBadgeNumber({
+            "value": 5,
+            "suppressNotification": true
+        });
+    }
+});
+
 }
