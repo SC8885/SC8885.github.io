@@ -22,28 +22,22 @@ async function getTeamsContext() {
   microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
       window.rflxMediator('getTeamsContext', JSON.stringify(context));
-      microsoftTeams.appInitialization.setTabBadge(4);
+      microsoftTeams.appInitialization.setTabBadge(6);
   });
-  microsoftTeams.applications.setApplicationIconBadgeNumber(3);
-  microsoftTeams.appInitialization.setTabBadge(4);
-  microsoftTeams.settings.setTabBadge("New", "#FF0000");
+  
 }
 
 // Get Teams context
 async function setTeamsBadgeCount() {
   console.log("Setting teams badge count");
-  await microsoftTeams.initialize();
-  microsoftTeams.tasks.submitTask(function (err, result) {
-    if (err) {
-        // Handle error
-    } else {
-        microsoftTeams.appInitialization.notifySuccess();
-        // Set the badge count
-        microsoftTeams.applications.setApplicationIconBadgeNumber({
-            "value": 6,
-            "suppressNotification": true
-        });
-    }
+  microsoftTeams.initialize(() => {
+  microsoftTeams.appInitialization.notifySuccess();
+
+  // Set the badge count
+  microsoftTeams.appBadge.setNumber(2);
+  microsoftTeams.applications.setApplicationIconBadgeNumber(3);
+  microsoftTeams.appInitialization.setTabBadge(4);
+  microsoftTeams.settings.setTabBadge("5", "#FF0000");
 });
 
 }
