@@ -22,6 +22,7 @@ async function getTeamsContext() {
   microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
       window.rflxMediator('getTeamsContext', JSON.stringify(context));
+      microsoftTeams.appInitialization.setTabBadge(4);
   });
   microsoftTeams.applications.setApplicationIconBadgeNumber(3);
   microsoftTeams.appInitialization.setTabBadge(4);
