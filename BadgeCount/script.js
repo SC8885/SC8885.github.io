@@ -25,6 +25,7 @@ async function getTeamsContext() {
   });
   microsoftTeams.applications.setApplicationIconBadgeNumber(3);
   microsoftTeams.appInitialization.setTabBadge(4);
+  microsoftTeams.appInitialization.setTabBadge(5);
 }
 
 // Get Teams context
@@ -38,7 +39,7 @@ async function setTeamsBadgeCount() {
         microsoftTeams.appInitialization.notifySuccess();
         // Set the badge count
         microsoftTeams.applications.setApplicationIconBadgeNumber({
-            "value": 5,
+            "value": 6,
             "suppressNotification": true
         });
     }
