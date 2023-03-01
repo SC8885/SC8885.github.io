@@ -22,20 +22,8 @@ async function getTeamsContext() {
     microsoftTeams.appInitialization.notifySuccess({
       suggestedDisplayName: "My Teams App"
     });
-//     console.log("TeamsContext initialize");
-    //microsoftTeams.appInitialization.setTabBadge(1);
-  });
-  microsoftTeams.tasks.submitTask(function (err, result) {
-    console.log("Teams submitTask");
-    if (err) {
-        // Handle error
-    } else {
-        // Update the badge count
-      microsoftTeams.appInitialization.notifySuccess({
-        suggestedDisplayName: "My Teams App"
-      });
-      microsoftTeams.appInitialization.setTabBadge(2);
-    }
+    console.log("TeamsContext initialize");
+    microsoftTeams.appInitialization.setTabBadge(1);
   });
   microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
