@@ -23,7 +23,7 @@ async function getTeamsContext() {
       suggestedDisplayName: "My Teams App"
     });
     console.log("TeamsContext initialize");
-    microsoftTeams.appInitialization.setTabBadge(1);
+//     microsoftTeams.appInitialization.setTabBadge(1);
     // Set the badge count
     microsoftTeams.applications.setApplicationIconBadgeNumber({
         "value": 5,
