@@ -24,6 +24,11 @@ async function getTeamsContext() {
     });
     console.log("TeamsContext initialize");
     microsoftTeams.appInitialization.setTabBadge(1);
+    // Set the badge count
+    microsoftTeams.applications.setApplicationIconBadgeNumber({
+        "value": 5,
+        "suppressNotification": true
+    });
   });
   microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
