@@ -11,6 +11,7 @@ async function ensureTeamsSdkInitialized() {
 // Function returns a promise which resolves to true if we're running in Teams
 async function isInTeams() {
     try {
+        console.log("checking isInTeams.."); 
         await ensureTeamsSdkInitialized();
         await microsoftTeams.app.getContext();
         window.rflxMediator('isInTeams', true);
@@ -21,13 +22,12 @@ async function isInTeams() {
         window.rflxMediator('isInTeams', false);  
         return false;
     }
-}
-
+  }
 
 // Get a client side token from Teams
 async function getTeamsToken() {
   if (await isInTeams()) {  
-    console.log("getting TeamsToken");      
+    console.log("getting TeamsToken..");      
     await ensureTeamsSdkInitialized();
     microsoftTeams.authentication.getAuthToken({
         successCallback: (result) => {
@@ -45,7 +45,7 @@ async function getTeamsToken() {
 // Get Teams context
 async function getTeamsContext() {
   if (await isInTeams()) {  
-    console.log("getting TeamsContext");      
+    console.log("getting TeamsContext..");      
     await ensureTeamsSdkInitialized();
     microsoftTeams.getContext((context) => {
       console.log("TeamsContext successCallback");
