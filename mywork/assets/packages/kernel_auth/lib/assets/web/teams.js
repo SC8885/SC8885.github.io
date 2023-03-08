@@ -12,9 +12,9 @@ async function ensureTeamsSdkInitialized() {
 async function isInTeams() {
     try {
         await ensureTeamsSdkInitialized();
-        const context = await microsoftTeams.app.getContext();
-        window.rflxMediator('isInTeams', (context.app.host.name === microsoftTeams.HostName.teams));
-        return (context.app.host.name === microsoftTeams.HostName.teams);
+        await microsoftTeams.app.getContext();
+        window.rflxMediator('isInTeams', true);
+        return (true);
     }
     catch (e) {
         console.log(`${e} from Teams SDK, may be running outside of Teams`);  
