@@ -34,15 +34,30 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '269392273';
+    var serviceWorkerVersion = '832481469';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <script
+      src="https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js"
+      integrity="sha384-QtTBFeFlfRDZBfwHJHYQp7MdLJ2C3sfAEB1Qpy+YblvjavBye+q87TELpTnvlXw4"
+      crossorigin="anonymous"
+    ></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
+      // window.location='/#/details';
+      // if (await inTeams()) {
+      //       await ensureTeamsSdkInitialized();
+      //       const context = await microsoftTeams.app.getContext();
+      //       if (context.page.subPageId) {
+      //           window.location.href = `/pages/orderDetail.html?orderId=${context.page.subPageId}`;
+      //       }
+      //   }
+
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
