@@ -63,6 +63,11 @@ async function getSubEntityId() {
         microsoftTeams.getContext((context) => {
             console.log("getSubEntityId success");   
             console.log(JSON.stringify(context));
+            if (context.page.subPageId) {
+                console.log("SubEntityId successCallback: ");
+                console.log(context.page.subPageId);
+                window.rflxMediator('subEntityId', context.page.subPageId);
+            } 
         });
     } else {
         window.rflxMediator('subEntityId', 'details');
