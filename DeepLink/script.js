@@ -58,7 +58,7 @@ async function getTeamsContext() {
 
 async function getSubEntityId() {
     if (await inTeams()) {  
-        console.log("getting SubEntityId");      
+        console.log("getSubEntityId started");      
         await ensureTeamsSdkInitialized();
         microsoftTeams.getContext((context) => {
             console.log("getSubEntityId success");   
