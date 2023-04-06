@@ -73,30 +73,18 @@ async function getSubEntityId() {
     }
   }
 
-   async function copyTeamsDeepLink(feedKey) {
+  async function copyTeamsDeepLink(feedKey) {
     try {
-      // //temp textarea for copy to clipboard functionality
-      // var textarea = document.createElement("textarea");
-      // const encodedContext = encodeURI(`{"subEntityId": "${feedKey}"}`);
-      // //form the deeplink                       
-      // const deeplink = `https://teams.microsoft.com/l/entity/a7e6c91e-5eed-4eb7-837a-3aeaa4eea6a7/MyWork?&context=${encodedContext}`;
-      // textarea.value = deeplink;
-      // document.body.appendChild(textarea);
-      // textarea.select();
-      // document.execCommand("copy"); //deprecated but there is an issue with navigator.clipboard api
-      // document.body.removeChild(textarea);
-        
-        
-      if (await inTeams()) {  
-        console.log("copyTeamsDeepLink started");      
-        await ensureTeamsSdkInitialized();
-        microsoftTeams.shareDeepLink({ subEntityId: feedKey});
-        microsoftTeams.getContext((context) => {
-            console.log("copyTeamsDeepLink successCallback");   
-            console.log(JSON.stringify(context));
-            microsoftTeams.shareDeepLink({ subEntityId: feedKey});
-        });
-      } 
+      //temp textarea for copy to clipboard functionality
+      var textarea = document.createElement("textarea");
+      const encodedContext = encodeURI(`{"subEntityId": "${feedKey}"}`);
+      //form the deeplink                       
+      const deeplink = `https://teams.microsoft.com/l/entity/a7e6c91e-5eed-4eb7-837a-3aeaa4eea6a7/MyWork?&context=${encodedContext}`;
+      textarea.value = deeplink;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy"); //deprecated but there is an issue with navigator.clipboard api
+      document.body.removeChild(textarea);
     } catch (err) {
         console.error('Failed to copy: ', err);
     }
