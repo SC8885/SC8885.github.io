@@ -85,9 +85,12 @@ async function getSubEntityId() {
       // textarea.select();
       // document.execCommand("copy"); //deprecated but there is an issue with navigator.clipboard api
       // document.body.removeChild(textarea);
+        
+        
       if (await inTeams()) {  
         console.log("copyTeamsDeepLink started");      
         await ensureTeamsSdkInitialized();
+        microsoftTeams.shareDeepLink({ subEntityId: feedKey});
         microsoftTeams.getContext((context) => {
             console.log("copyTeamsDeepLink successCallback");   
             console.log(JSON.stringify(context));
