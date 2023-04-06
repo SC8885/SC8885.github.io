@@ -63,13 +63,30 @@ async function getSubEntityId() {
         microsoftTeams.getContext((context) => {
             console.log("SubEntityId successCallback");   
             console.log(JSON.stringify(context));
+            var appId = context.teamId;
+            console.log("Teams app ID: ", appId);
             obj = JSON.parse(JSON.stringify(context));
-            console.log("SubEntityId : ", obj.subEntityId); 
-            console.log(obj.subEntityId);
             window.rflxMediator('subEntityId', obj.subEntityId);
         });
     } else {
         window.rflxMediator('subEntityId', 'details');
         console.log("App not embedded in Teams");
+    }
+  }
+
+  async function copyTeamsDeepLink(feedKey) {
+    try {
+      //temp textarea for copy to clipboard functionality
+      var textarea = document.createElement("textarea");
+      const encodedContext = encodeURI(`{"subEntityId": "${feedKey}"}`);
+      //form the deeplink                       
+      const deeplink = `https://teams.microsoft.com/l/entity/a7e6c91e-5eed-4eb7-837a-3aeaa4eea6a7/MyWork?&context=${encodedContext}`;
+      textarea.value = deeplink;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy"); //deprecated but there is an issue with navigator.clipboard api
+      document.body.removeChild(textarea);
+    } catch (err) {
+        console.error('Failed to copy: ', err);
     }
   }
