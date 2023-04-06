@@ -3,7 +3,11 @@
 let teamsInitPromise;
 async function ensureTeamsSdkInitialized() {
     if (!teamsInitPromise) {
-        teamsInitPromise = await microsoftTeams.app.initialize();
+        teamsInitPromise = await microsoftTeams.initialize(() => {
+          microsoftTeams.appInitialization.notifySuccess();
+          const appId = microsoftTeams.appInitialization.appId;
+          console.log(`The app ID of your Microsoft Teams app is ${appId}`);
+        });
     }
     return teamsInitPromise;
 }
