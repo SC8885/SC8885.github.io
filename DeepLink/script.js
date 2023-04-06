@@ -61,13 +61,12 @@ async function getSubEntityId() {
         console.log("getSubEntityId started");      
         await ensureTeamsSdkInitialized();
         microsoftTeams.getContext((context) => {
-            console.log("getSubEntityId success");   
+            console.log("SubEntityId successCallback");   
             console.log(JSON.stringify(context));
-            if (context.page.subPageId) {
-                console.log("SubEntityId successCallback: ");
-                console.log(context.page.subPageId);
-                window.rflxMediator('subEntityId', context.page.subPageId);
-            } 
+            obj = JSON.parse(JSON.stringify(context));
+            console.log("SubEntityId : ", obj.subEntityId); 
+            console.log(obj.subEntityId);
+            window.rflxMediator('subEntityId', obj.subEntityId);
         });
     } else {
         window.rflxMediator('subEntityId', 'details');
