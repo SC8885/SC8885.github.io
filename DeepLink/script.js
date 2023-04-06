@@ -1,13 +1,8 @@
-
 // Ensure that the Teams SDK is initialized once no matter how often this is called
 let teamsInitPromise;
 async function ensureTeamsSdkInitialized() {
     if (!teamsInitPromise) {
-        teamsInitPromise = await microsoftTeams.initialize(() => {
-          microsoftTeams.appInitialization.notifySuccess();
-          const appId = microsoftTeams.appInitialization.appId;
-          console.log(`The app ID of your Microsoft Teams app is ${appId}`);
-        });
+        teamsInitPromise = await microsoftTeams.app.initialize();
     }
     return teamsInitPromise;
 }
