@@ -39,7 +39,7 @@ async function getTeamsTenantId() {
     microsoftTeams.getContext((context) => {
       console.log("getTeamsTenantId successCallback");
       let obj = JSON.parse(JSON.stringify(context));
-      window.rflxMediator('getTeamsTenantId', obj.tenantId);
+      window.rflxMediator('getTeamsTenantId', obj.tid);
     });
   } else {
     console.log("App not embedded in Teams");
