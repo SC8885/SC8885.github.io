@@ -14,10 +14,9 @@ const RESOURCES = {
 "splash/img/light-1x.png": "2f9d75b780ea788505d513ef0fc6a119",
 "splash/splash.js": "123c400b58bea74c1305ca3ac966748d",
 "splash/style.css": "3e8699dd65a865ff991ec5b47a93643d",
-"index.html": "058b6a0cceb4a4314bd4366915cbd323",
+"index.html": "5575007ffca803f0a62930b40c87c6be",
 "/": "ad05061631025637ee5b1cb5f26cf4ca",
-"main.dart.js": "ee16af7cebd05f5e9b6b5ac098901aa7",
-"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
+"main.dart.js": "a9295810a69ddc3f2eafa274b2bbe49a",
 "favicon.png": "6d49b6b36cabaa7ef4e3db096aa9ce5d",
 "icons/Icon-192.png": "bb300e1fe6cba68b7c0d3884d111b813",
 "icons/Icon-maskable-192.png": "bb300e1fe6cba68b7c0d3884d111b813",
@@ -223,15 +222,11 @@ const RESOURCES = {
 "assets/packages/ztmf_localizations/lib/assets/es_PR.json": "cff637fc93b073c576d867795c988c82",
 "assets/packages/kernel_auth/lib/assets/images/loggedOut.png": "fc8583ef4ac4fbb1aecec630b59e9f55",
 "assets/packages/kernel_auth/lib/assets/images/error.png": "67e1f01a0ed0e2c897015b5fc8bad9d8",
-"assets/packages/kernel_auth/lib/assets/web/teams.js": "af029beb482ef0d64b975c5bb323cc94",
+"assets/packages/kernel_auth/lib/assets/web/teams.js": "c0f64ff84845a3a5638726ec58d152ff",
 "assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/assets/config.json": "aed0322721e82e12c1043950de4c1ad0",
-"assets/assets/colors.json": "fea3e3379e2309c8c81cc9150db1ade6",
-"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
-"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
-"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
-"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
+"assets/assets/colors.json": "fea3e3379e2309c8c81cc9150db1ade6"
 };
 
 // The application shell files that are downloaded before a service worker can

@@ -37,8 +37,8 @@ async function getTeamsTenantId() {
   if (await isInTeams()) {  
     console.log("getting Teams TenantId..");      
     microsoftTeams.getContext((context) => {
-      console.log("getTeamsTenantId successCallback");
       let obj = JSON.parse(JSON.stringify(context));
+      console.log("TeamsTenantId successCallback", obj.tid)
       window.rflxMediator('getTeamsTenantId', obj.tid);
     });
   } else {
@@ -54,7 +54,7 @@ async function getTeamsToken() {
     console.log("getting TeamsToken..");      
     microsoftTeams.authentication.getAuthToken({
         successCallback: (result) => {
-            console.log("TeamsToken successCallback");
+            console.log("TeamsToken successCallback", result);
             window.rflxMediator('getTeamsToken', result);
         },
         failureCallback: (error) => {
