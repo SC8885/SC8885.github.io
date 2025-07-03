@@ -1,0 +1,14 @@
+{
+    "light": {
+      "primary": "#4f52b2",
+      "primaryVariant": "#444791",
+      "secondary": "#5b5fc7",
+      "secondaryVariant": null
+    },
+    "dark": {
+      "primary": "#4f52b2",
+      "primaryVariant": "#444791",
+      "secondary": "#5b5fc7",
+      "secondaryVariant": null
+    }
+}
